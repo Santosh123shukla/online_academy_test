@@ -1,0 +1,12 @@
+<!-- app/views/tests/index.html.erb -->
+
+<h1>Welcome to Online Academy Test</h1>
+
+<%= form_tag '/tests', method: :post do %>
+  <h2>Select Subjects:</h2>
+  <% @subjects.each do |subject| %>
+    <%= check_box_tag 'subjects[]', subject %>
+    <%= label_tag subject %><br>
+  <% end %>
+  <%= submit_tag 'Start Test' %>
+<% end %>

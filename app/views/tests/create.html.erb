@@ -1,0 +1,18 @@
+<!-- app/views/tests/create.html.erb -->
+
+<h2>Test Questions</h2>
+
+<%= form_tag do %>
+  <% @questions.each_with_index do |question, index| %>
+    <div>
+      <p><strong><%= "Q#{index + 1}:" %></strong> <%= question.content %></p>
+      <% (1..4).each do |i| %>
+        <label>
+          <%= radio_button_tag "answers[#{index}]", i %>
+          <%= question["option#{i}"] %>
+        </label><br>
+      <% end %>
+    </div>
+  <% end %>
+  <%= submit_tag 'Submit' %>
+<% end %>
